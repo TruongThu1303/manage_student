@@ -6,7 +6,13 @@
       <div class="col-lg-4">
         <div class="card shadow-sm">
           <div class="card-header bg-transparent text-center">
-            <img class="profile_img" src="https://placeimg.com/640/480/arch/any" alt="">       
+          @php
+                $imageExtensions = ['png', 'jpeg', 'jpg'];
+                $fileExtension = pathinfo($student->image, PATHINFO_EXTENSION);
+                @endphp
+                @if (in_array($fileExtension, $imageExtensions))
+                <img class="profile_img" src="{{ Storage::url($student->image) }}" alt="Avatar" width="150px">
+                @endif  
           </div>
           <div class="card-body">
             <p class="mb-0"><strong class="pr-1">{{ trans('message.students.fullname') }}:</strong> {{ $student->fullname }}</p>

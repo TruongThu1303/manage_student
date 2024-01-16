@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Students extends Model
 {
-    protected $table = 'students';
+    protected $table = 'students_update';
     protected $primaryKey = 'id'; 
-    protected $fillable = ['id','fullname','masv','email','phone'];
+    protected $fillable = ['id','fullname','image','masv','email','phone'];
 
     public static function findStudentById($id)
     {
